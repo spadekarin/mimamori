@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+  </head>
+
+  <script
+    type="text/javascript"
+    src="https://chirimen.org/chirimen-micro-bit/polyfill/microBitBLE.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@chirimen/adt7410"
+  ></script>
+  <script src="https://chirimen.org/remote-connection/js/RelayServer.js"></script>
+  <script type="text/javascript" src="https://chirimen.org/chirimen/gc/i2c/i2c-ADT7410/node_modules/@chirimen-raspi/chirimen-driver-i2c-adt7410/ADT7410.js"></script>
+  <!-- <script src="https://chirimen.org/chirimen-micro-bit/polyfill/microBitBLE.js"></script> -->
+  <!-- <script src="mbit1_2.js"></script> -->
+  <!--<script type="text/javascript" src="i2c-ADT7410.js"></script>-->
+
+  <script type="text/javascript" src="mbit.js"></script>
+
+  <body>
+    <!-- <form name="js">
+      <input type="button" value="Connect" onclick="connect();" />
+      <input type="button" value="Disconnect" onclick="disconnect();" />
+    </form>
+    <span id="msg"></span> -->
+    <h3>Remote Controll</h3>
+    <p>
+      -------ゲームルールの説明をここに書く-----<br />
+      ボタンをおすと, 相手のmicrobitにあなたの照度が表示されます.
+    </p>
+    <hr />
+    <form name="js">
+      <input type="button" value="Connect" onclick="connect();" />
+    </form>
+    <form name="js">
+      <input type="button" value="Disonnect" onclick="disconnect();" />
+    </form>
+    <!-- <p id="head">BH1750</p> -->
+    <!-- <img src="imgs/pinbit_BH1750.png" width="400" /> -->
+    <table>
+      <tr>
+        <td>message:</td>
+        <td id="msg">---</td>
+      </tr>
+      <tr>
+        <td>LIGHT[lx] :</td>
+        <td id="light"></td>
+      </tr>
+
+        <td>temperature:</td>
+        <td id="temTd">-</td>
+      </tr>
+      <tr>
+        <td>brightness:</td>
+        <td id="briTd">-</td>
+      </tr>
+      <tr>
+        <td>button:</td>
+        <td id="butTd">-</td>
+      </tr>
+    </table>
+    <div id="messageDiv"></div>
+  </body>
+</html>
