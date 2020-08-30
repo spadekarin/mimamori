@@ -53,35 +53,20 @@ async function disconnect() {
 async function nPixTest1() {
   console.log("nPix:", npix);
   await npix.setGlobal(10, 0, 0);
-  await sleep(200);
-  await npix.setGlobal(0, 10, 0);
-  await sleep(200);
-  await npix.setGlobal(0, 0, 10);
-  await sleep(200);
-  await npix.setGlobal(0, 20, 20);
-  await sleep(200);
-  await npix.setGlobal(20, 0, 20);
-  await sleep(200);
-  await npix.setGlobal(20, 20, 0);
-  await sleep(200);
-  await npix.setGlobal(20, 20, 20);
-  await sleep(200);
+  await sleep(1000);
+  await npix.setGlobal(20, 0, 0);
+  await sleep(1000);
   await npix.setGlobal(0, 0, 0);
 }
 
-async function LEDblink() {
-  var gpio0Val = 0;
-  var count = 0;
-  while (blinkEnable) {
-    gpio0Val = gpio0Val === 1 ? 0 : 1; // 条件 (三項) 演算子
-    await gpioPort0.write(gpio0Val);
-    //msg.innerHTML = gpio0Val;
-    count++;
-    if (count == 10) {
-      break;
-    }
-    await sleep(1000);
-  }
+async function nPixTest2() {
+  console.log("nPix:", npix);
+  await npix.setGlobal(0, 10, 0);
+  await sleep(1000);
+  await npix.setGlobal(0, 20, 0);
+  await sleep(1000);
+
+  await npix.setGlobal(0, 0, 0);
 }
 
 //messageをmicrobitのLEDで表示する関数
@@ -94,9 +79,10 @@ async function printMessage(message) {
     channel.send({ done: iconNumb }); // 表示の完了を知らせるメッセージを通知
     if (iconNumb >= 28 && iconNumb <= 40) {
       await microBitBle.printLED("HOT");
-      LEDblink();
+      nPixTest1();
     } else if (iconNumb < 20) {
       await microBitBle.printLED("DARK");
+      nPixTest2();
     }
   }
 }
@@ -188,25 +174,3 @@ function hsvToRgb(H, S, V) {
 
   return [R, G, B];
 }
-
-/*//値を読み通信する関数
-async function readData() {
-  var readVal;
-  while (readEnable) {
-    readVal = await adt7410.read();
-    console.log("readVal:", readVal);
-    msg.innerHTML = "温度: " + readVal + "℃";
-    await sleep(1000);
-  }
-  //   while (readEnable) {
-  // BH1750から明るさを取得
-  // var val = await bh1750.measure_low_res();
-  // console.log(val);
-  // light.innerHTML = val;
-  //   await sleep(300);
-  //値をrelayサーバを通して相手のmicrobitに送る
-  //   var data = pollButtonPush();
-  //相手からrelayサーバを通して明るさを取得
-  //得られた値を出力する
-}*/
-
