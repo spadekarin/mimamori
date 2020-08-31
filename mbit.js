@@ -77,7 +77,7 @@ async function printMessage(message) {
     channel.send({ start: iconNumb }); // 表示の開始を知らせるメッセージを通知
     await microBitBle.printLED(String(Math.floor(iconNumb))); // micro:bitに表示を指示する(表示の完了に時間がかかる)
     channel.send({ done: iconNumb }); // 表示の完了を知らせるメッセージを通知
-    if (iconNumb >= 28 && iconNumb <= 40) {
+    if (iconNumb >= 28 && iconNumb <= 41) {
       await microBitBle.printLED("HOT");
       nPixTest1();
     } else if (iconNumb < 20) {
