@@ -3,7 +3,7 @@
 見守り熱中症&鬱予防
 
 
-↓実際に装置を動かしています↓
+↓実際に装置を動かしています<動画>↓
 
 https://drive.google.com/file/d/1G7VntwxrQ4Mm23CAfkF1E91KwvLrbHha/view?usp=sharing
 
